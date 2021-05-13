@@ -1,0 +1,711 @@
+@font-face{
+  font-family: 'Maxi';
+  src:url(../fonts/Maxi/EduMaxiRoundMono-Regular.woff2) format('woff2');
+}
+
+@font-face{
+  font-family: 'Tex';
+  src:url(../fonts/Tex/texgyreheros-regular.woff2) format('woff2');
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Maxi, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: blue;
+  font-size: 12pt;
+}
+
+.headerbg,
+.header {
+  position: fixed;
+  z-index: 1000;
+}
+
+.headerbg {
+  top: 0;
+  height: 5em;
+  background-color: white;
+  width: 100vw;
+}
+
+@media screen and (max-width: 50em) {
+  .headerbg {
+    height: 6em;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .headerbg {
+    height: 7.5em;
+  }
+}
+
+@media screen and (max-width: 28em) {
+  .headerbg {
+    height: 9em;
+  }
+}
+
+.header {
+  position: fixed;
+  width: 85vw;
+  display: flex;
+  flex-direction: column;
+  left: -1px;
+  padding: 1em 0 1em 1em;
+
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+  width: auto;
+}
+
+.title h1 {
+  margin-right: 2em;
+}
+
+.toplinks, .botlinks {
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+  transform: translateX(50%);
+}
+
+@media screen and (max-width: 40em) {
+  .toplinks, .botlinks {
+    width: 85vw;
+    transform: translateX(0);
+  }
+}
+
+.toplinks a, .botlinks a, .flatfilebotlinks a {
+  color: blue;
+  text-decoration: none;
+}
+
+.toplinks a:hover, .botlinks a:hover, .flatfilebotlinks a:hover {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.pushpin {
+  position: fixed;
+  right: 1em;
+  top: 1em;
+  z-index: 1000;
+}
+
+.botlinks {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+}
+
+.selected {
+  text-decoration: underline;
+}
+
+.about {
+  width: 100vw;
+  position: absolute;
+  left: 0em;
+  bottom: 0em;
+  transform: translateY(100%);
+  padding-bottom: 10em;
+  background-color: blue;
+}
+
+.info, .info2, .infoindent {
+  color: white;
+}
+
+.info, .info2 {
+  font-family: Tex, sans-serif;
+  width: 85vw;
+  margin: 1em 0 0 1em;
+}
+
+.infoindent {
+  font-family: Maxi, sans-serif;
+  width: 50vw;
+  margin: 3em 0 0 1em;
+  display: flex;
+  justify-content: space-between;
+  transform: translateX(50%);
+}
+
+.lookarrows {
+  position: absolute;
+  top: -1px;
+  left: -4vw;
+  width: calc(100% + 8vw);
+  display: flex;
+  justify-content: space-between;
+  height: calc(100% + 2px);
+}
+
+button, .left, .right {
+  background-color: white;
+  color: blue;
+  border: none;
+  padding: 5px 12px;
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue;
+  text-decoration: none;
+  width: 4vw;
+}
+
+.left {
+  border-right: 1px solid blue;
+}
+
+.right {
+  border-left: 1px solid blue;
+}
+
+.left, .right {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left:hover, .right:hover {
+  background-color: blue;
+  color: white;
+}
+
+.room {
+  position: relative;
+  margin: 6em 0 2em 0;
+  border: 1px blue solid;
+}
+
+.space {
+  max-width: calc(92vw);
+  /* max-height: 85vh; */
+}
+
+.exhibit {
+  position: absolute;
+  display: flex;
+  width: 20vw;
+  height: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  top: 30%;
+  left: 1em;
+  border: 1px solid blue;
+  background-color: white;
+  z-index: 999;
+  /* padding-top: 2em; */
+}
+
+.wall1 {
+  position: absolute;
+  display: flex;
+  width: 44vw;
+  height: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  top: 32%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid blue;
+  background-color: white;
+  padding-top: 2em;
+  z-index: 999;
+}
+
+.posters {
+  position: absolute;
+  display: flex;
+  width: 25vw;
+  height: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.exhibitzoom {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 60vw;
+  max-height: 75vh;
+  height: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid blue;
+  background-color: white;
+  padding-top: 2em;
+  z-index: 1000;
+}
+
+.exhibit h1, .wall1 h1 {
+  position: absolute;
+  top: 10px;
+}
+
+.exhibitzoom h1, .wall1zoom h1 {
+  position: absolute;
+  top: 10px;
+}
+
+.objects {
+  position: absolute;
+  display: flex;
+  width: 40vw;
+  height: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  bottom: 25%;
+  right: 10vw;
+  z-index: 999;
+}
+
+.objects img {
+  height: 10vh;
+}
+
+.objects img:hover {
+  -webkit-filter: drop-shadow( 4px 1px 0 blue);
+  filter: drop-shadow( 4px 1px 0 blue);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.exhibit img {
+  margin: 1em 0.5em;
+}
+
+.exhibit img, .posters img, .wall1 img {
+  max-height: 8vw;
+  align-self: center; /* fixes weird image stretching? */
+  /* border: 1px solid blue; */
+}
+
+.blur {
+  filter: blur(0.1em);
+}
+
+.exhibitzoom img, .wall1zoom img {
+  max-height: 40vh;
+  margin: 0.5em;
+  height: auto;
+  align-self: center; /* fixes weird image stretching? */
+  border: 1px solid blue;
+}
+
+.exhibit:hover, .exhibit img:hover, .exhibitzoom img:hover, .posters img:hover,.wall1:hover, .wall1 img:hover, .wall1zoom img:hover, .imgwindow:hover, .lightbox:hover {
+  box-shadow: -2px 2px 0em blue;
+}
+
+.imgwindow {
+  padding-top: 0.8em;
+  background-color: white;
+  border: 1px solid blue;
+  margin: 0.5em;
+}
+
+.lightboxouter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox {
+  position: absolute;
+  z-index: 1001;
+  top: 0;
+  padding: 1.6em 1.2em 0 1.2em;
+  background-color: white;
+  margin-top: 1em;
+  border: 1px solid blue;
+}
+
+.lightbox img {
+  max-height: 65vh;
+  min-width: 25vw;
+}
+
+.lightboxtext {
+  width: calc(100% + 2.4em);
+  margin-left: -1.2em;
+  background-color: white;
+}
+
+.lightboxtitle, .lightboxinfo {
+  background-color: white;
+  color: blue;
+}
+
+.lightboxtitle {
+  margin-left: 0.7em;
+  padding: 0.5em 0.5em 0 0.5em;
+}
+
+.lightboxtitle a {
+  color: blue;
+}
+
+.lightboxinfo {
+  font-family: Tex, sans-serif;
+    margin-left: 1.1em;
+  padding: 0.3em 0.5em 2em 0.5em;
+  width: 25vw;
+  font-size: 0.8em;
+  line-height: 1.2;
+}
+
+.lightbox img:hover {
+  cursor: zoom-out;
+}
+
+.prev, .next {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 1.6em;
+    height: 65vh;
+    width: 1.2em;
+    background-color: white;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover, .next:hover {
+  cursor: pointer;
+  background-color: blue;
+  color: white;
+}
+
+.draggable:hover {
+  cursor: move;
+}
+
+.imgwindow img:hover {
+  cursor: zoom-in;
+}
+
+.goback {
+  position: absolute;
+  top: 70vh;
+  left: 5vw;
+}
+
+em {
+  font-style: normal;
+  font-weight: normal;
+  margin-bottom: 2px;
+}
+
+.nav {
+  display: flex;
+  z-index: 999;
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid blue;
+  background-color: white;
+  padding: 1em;
+}
+
+.flavor {
+  margin-right: 1em;
+  font-family: Tex, sans-serif;
+  max-width: 20vw;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons a {
+  padding: 5px 12px;
+  color: blue;
+  background-color: white;
+  border: 1px solid blue;
+  text-decoration: none;
+  margin-bottom: 0.5em;
+}
+
+.buttons a:last-child {
+  margin-bottom: 0;
+}
+
+.buttons a:hover {
+  box-shadow: -2px 2px 0em blue;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.popup {
+  position: absolute;
+  z-index: 1000;
+  border: 1px solid blue;
+  width: 30vw;
+  height: 25vh;
+  text-align: center;
+  background-color: white;
+  top: calc(50% - 12.5vh);
+}
+
+.popup:hover {
+  box-shadow: -2px 2px 0em blue;
+}
+
+.popuptext {
+  font-family: Tex, sans-serif;
+  position: absolute;
+  width: 25vw;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(50% - 3em);
+}
+
+.popupclose {
+  font-family: Maxi, sans-serif;
+  font-size: 1em;
+  position: absolute;
+  padding: 1em;
+  bottom: 0;
+  border: 0;
+  left: 0;
+  width: calc(30vw - 2px);
+  border-top: 1px solid blue;
+}
+
+.popupclose:hover {
+  color: white;
+  background-color: blue;
+}
+
+
+.flatfile {
+  width: 100vw;
+  margin-top: 6em;
+  margin-bottom: 2em;
+  padding: 0em 1em;
+  display: grid;
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+  "a b . ."
+  "h h h h"
+  ". i . c"
+  ". d . ."
+  "l l l l"
+  "e j . ."
+  "e f . ."
+  ". k . g"
+}
+
+@media screen and (max-width: 50em) {
+  .flatfile {
+    margin-top: 7em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "a b"
+    "h h"
+    "i c"
+    "d ."
+    "l l"
+    ". e"
+    "f e"
+    ". g"
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .flatfile {
+    margin-top: 9em;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "a"
+    "h"
+    "b"
+    "c"
+    "d"
+    "l"
+    "e"
+    "f"
+    "g"
+  }
+}
+
+.name {
+  font-family: Tex, sans-serif;
+  padding: 0.5em;
+  border-bottom: 1px solid blue;
+  color: blue;
+}
+
+.name:hover {
+  color: white;
+  background-color: blue;
+}
+
+.name:last-child {
+  border-bottom: 0;
+}
+
+.flatfiletitle {
+  padding: 0.5em;
+  border-bottom: 1px solid blue;
+  color: white;
+  background-color: blue;
+}
+
+.horizontalline, .horizontalline2 {
+
+  width: calc(100% + 2em);
+  margin-left: -1em;
+  margin-top: -1px;
+  border-bottom: 1px solid blue;
+}
+
+.horizontalline {
+  grid-area: h;
+}
+
+.horizontalline2 {
+  grid-area: l;
+}
+
+.verticalline, .verticalline2, .verticalline3 {
+  height: 100%;
+  margin-left: 0px;
+  border-left: 1px solid blue;
+}
+
+.verticalline {
+    grid-area: i;
+}
+
+.verticalline2 {
+    grid-area: j;
+}
+
+.verticalline3 {
+    grid-area: k;
+    border-left: 0;
+    border-right: 1px solid blue;
+}
+
+.bfa1file, .bfa2file, .bfa3file, .bfa4file, .pmfafile, .mfa1file, .mfa2file {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid blue;
+  border-left: 1px solid blue;
+  border-right: 1px solid blue;
+  border-top: 1px solid blue;
+  margin-top: -1px;
+}
+
+.bfa1file {
+  grid-area: a;
+  border-right: 0;
+}
+
+@media screen and (max-width: 40em) {
+  .bfa1file {
+    border-right: 1px solid blue;
+  }
+}
+
+.bfa2file {
+  grid-area: b;
+}
+
+.bfa3file {
+  grid-area: c;
+}
+
+.bfa4file {
+  grid-area: d;
+}
+
+.pmfafile {
+  grid-area: e;
+  border-right: 0;
+}
+
+@media screen and (max-width: 50em) {
+  .pmfafile {
+    border-right: 1px solid blue;
+  }
+}
+
+.mfa1file {
+  grid-area: f;
+}
+
+@media screen and (max-width: 50em) {
+  .mfa1file {
+    border-right: 0;
+  }
+}
+
+@media screen and (max-width: 40em) {
+  .mfa1file {
+    border-right: 1px solid blue;
+  }
+}
+
+.mfa2file {
+  grid-area: g;
+  margin-bottom: -1px;
+}
+
+.flatfilebotlinks {
+  position: static;
+  margin-left: 1em;
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+  transform: translateX(50%);
+}
+
+.flatfileabout {
+  width: 100vw;
+  position: static;
+  padding-bottom: 10em;
+  background-color: blue;
+}
+
+.info2 {
+  padding-top: 1em;
+}
